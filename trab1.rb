@@ -109,6 +109,7 @@ def createNodosString
     return auxString
 end
 
+# find in the hash who uses the operation
 def findOperationUsages(operation, opType)
     operationArray = $opHash[opType + operation.operationElement]
     operationArray.each { 
@@ -136,8 +137,8 @@ def testDataReceived
     }
 end
 
+# Method to verify a cicle in a graph
 def verifyCicle
-    
     $nodos.each { 
         |node|
         if(node.entradas.length > 0)
@@ -147,6 +148,7 @@ def verifyCicle
     return false
 end
 
+# Recursive Method that find a cicle in a graph, checks whether the node has arrival edges, and if node id is equal that it start then there is a cicle.
 def findCicle(nodes, idInicio, passed)
     if(!passed.any?{|id| id == nodes.operationId})
         passed.push(nodes.operationId)
@@ -166,5 +168,4 @@ end
 
 readFile
 testDataReceived
-
 writeFile
