@@ -41,7 +41,7 @@ $oldOperation = nil
 
 # Method that read File and populate data array
 def readFile
-    File.open("teste.in", "r") do |f|
+    File.open(ARGV[0], "r") do |f|
       f.each_line do |line|
         if line != " " or line != ""
             auxData = line.split
@@ -54,7 +54,7 @@ end
 
 # Method that write the results in the output file
 def writeFile
-    File.open("teste.out", "w+") do |f|
+    File.open(ARGV[1], "w+") do |f|
         $results.each{
             |result|
             f.puts(result)

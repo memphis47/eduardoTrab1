@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ -z $2 ]
+then
+    ruby trab1.rb $1 teste.out
+else
+    ruby trab1.rb $1 $2
+fi
