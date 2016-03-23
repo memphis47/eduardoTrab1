@@ -94,6 +94,7 @@ def switchDefinition(operation)
     end
 end
 
+# Return a string with all nodes that was usade in the process
 def createNodosString
     auxString = ""
     firsTime = true
@@ -142,7 +143,9 @@ def verifyCicle
     $nodos.each { 
         |node|
         if(node.entradas.length > 0)
-            return findCicle(node, node.operationId ,Array.new)
+            if(findCicle(node, node.operationId ,Array.new))
+                return true
+            end
         end
     }
     return false
